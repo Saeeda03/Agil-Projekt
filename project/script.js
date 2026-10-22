@@ -15,7 +15,19 @@ function addTask() {
 
     const li = document.createElement("li");
 
-    li.textContent = taskText;
+     li.textContent = taskText;
+
+     li.addEventListener("click", function () {
+        li.classList.toggle("done");
+    });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Ta bort";
+    deleteBtn.addEventListener("click", function (event) {
+        event.stopPropagation();
+        li.remove();
+    });
+    li.appendChild(deleteBtn);
 
     taskList.appendChild(li);
 

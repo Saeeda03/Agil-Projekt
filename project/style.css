@@ -24,3 +24,8 @@ button {
 li {
     margin-top: 10px;
 }
+
+   li.done {
+       text-decoration: line-through;
+       color: gray;
+   }
