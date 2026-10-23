@@ -1,0 +1,32 @@
+
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agil-Projekt</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Min studieplanerare</h1>
+
+      <label for="taskInput">Ny studieuppgift</label>
+      <input
+        type="text"
+        id="taskInput"
+        placeholder="Skriv en uppgift..."
+      />
+      <button id="addBtn" type="button">Lägg till</button>
+
+      <p>
+        Återstående uppgifter:
+        <strong id="remainingCount">0</strong>
+      </p>
+
+      <h2>Mina uppgifter</h2>
+      <ul id="taskList"></ul>
+    </main>
+  </body>
+</html>
