@@ -8,8 +8,30 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <main>
+    <main class="container">
       <h1>Agil-Projekt</h1>
+      <section aria-labelledby="add-task-heading">
+        <h2 id="add-task-heading">Lägg till uppgift</h2>
+        <form id="taskForm">
+          <label for="taskInput">Titel</label>
+          <input id="taskInput" name="title" type="text" required />
+          <label for="taskDescription">Beskrivning</label>
+          <textarea id="taskDescription" name="description" rows="3"></textarea>
+          <button type="submit">Lägg till</button>
+        </form>
+      </section>
+
+      <section aria-labelledby="tasks-heading">
+        <h2 id="tasks-heading">Uppgifter</h2>
+        <label for="taskFilter">Visa</label>
+        <select id="taskFilter">
+          <option value="incomplete" selected>Endast ej klara uppgifter</option>
+          <option value="completed">Endast klara uppgifter</option>
+          <option value="all">Alla uppgifter</option>
+        </select>
+        <ul id="taskList" aria-live="polite"></ul>
+        <p id="emptyMessage" role="status" hidden></p>
+      </section>
     </main>
   </body>
 </html>
