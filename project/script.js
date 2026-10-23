@@ -4,12 +4,16 @@ const taskForm = document.getElementById("taskForm");
 const taskList = document.getElementById("taskList");
 const taskFilter = document.getElementById("taskFilter");
 const emptyMessage = document.getElementById("emptyMessage");
+const titleError = document.getElementById("titleError");
 // The project has no API yet, so browser storage is the current task source.
 const storageKey = "agil-projekt-tasks";
 let tasks = loadTasks();
 
 taskForm.addEventListener("submit", addTask);
 taskFilter.addEventListener("change", renderTasks);
+taskInput.addEventListener("input", () => {
+    titleError.hidden = true;
+});
 renderTasks();
 
 function loadTasks() {
@@ -52,10 +56,13 @@ function addTask(event) {
     event.preventDefault();
 
     const title = taskInput.value.trim();
-    if (title === "") {
-        alert("Skriv en titel för uppgiften!");
+        if (title === "") {
+        titleError.textContent = "Skriv en titel för uppgiften!";
+        titleError.hidden = false;
+        taskInput.focus();
         return;
     }
+    titleError.hidden = true;
 
     const newTask = {
         id: crypto.randomUUID(),
